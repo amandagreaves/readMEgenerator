@@ -8,7 +8,7 @@ inquirer
     .prompt([
     {
         type: "input",
-        name: "name",
+        name: "title",
         message: "What is your project called?",
     },
     {
@@ -53,14 +53,14 @@ inquirer
 
 .then(function (answers) {
     const input = generateMarkdown(answers);
-    writeToFile("README.md", "amanda")
+    writeToFile("README.md", input);
 })
 //.then(function () {
     //console.log("Successfully wrote to index.html");
 //})
-.catch(function (err) {
-    console.log(err);
-});
+//.catch(function (err) {
+  //  console.log(err);
+//});
 
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, function(err) {
