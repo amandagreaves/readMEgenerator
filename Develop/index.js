@@ -1,11 +1,9 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown")
-//const util = require("util");
-//const writeFileAsync = util.promisify(fs.writeFile);
 
 inquirer
-    .prompt([
+.prompt([
     {
         type: "input",
         name: "title",
@@ -23,7 +21,7 @@ inquirer
     },
     {
         type: "input",
-        name: "table of conents",
+        name: "tableOfConents",
         message: "What is included in your table of contents?",
     },
     {
@@ -43,11 +41,21 @@ inquirer
         ]
     },
     {
-        type: "input",
-        name: "linkedin",
-        message: "Enter your LinkedIn URL.",
+        type: "inpt",
+        name: "usage",
+        message: "What is this project used for?"
     },
-    ])
+    {
+        type: "input",
+        name: "github",
+        message: "What is your github username?"
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "What is your e-mail??"
+    },
+])
 
 
 
@@ -55,12 +63,6 @@ inquirer
     const input = generateMarkdown(answers);
     writeToFile("README.md", input);
 })
-//.then(function () {
-    //console.log("Successfully wrote to index.html");
-//})
-//.catch(function (err) {
-  //  console.log(err);
-//});
 
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, function(err) {
@@ -70,24 +72,50 @@ function writeToFile(fileName, data) {
         console.log("Success!");
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//const util = require("util");
+//const writeFileAsync = util.promisify(fs.writeFile);
 // array of questions for user
 //const questions = [
     
-// function to write README file
-
-//return writeFileAsync("index.html", html);
-// function to initialize program
-//function init() {
-
-//}
-
-// function call to initialize program
-//init();
-
-//* Title
-//* Description
-//* Table of Contents
-//* Installation
+    // function to write README file
+    
+    //return writeFileAsync("index.html", html);
+    // function to initialize program
+    //function init() {
+        
+        //}
+        
+        // function call to initialize program
+        //init();
+        
+        //.then(function () {
+            //console.log("Successfully wrote to index.html");
+        //})
+        //.catch(function (err) {
+          //  console.log(err);
+        //});
+        //* Title
+        //* Description
+        //* Table of Contents
+        //* Installation
 //* Usage
 //* License
 //* Contributing
